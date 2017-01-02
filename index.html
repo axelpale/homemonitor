@@ -1,16 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Home monitor</title>
-    <style>
-    </style>
-  </head>
-  <body>
-    <iframe src="https://mdn-samples.mozilla.org/snippets/html/iframe-simple-contents.html" width="400" height="300">
-      <p>Your browser does not support iframes.</p>
-    </iframe>
-    <script>
-    </script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>Home monitor</title>
+
+
+
+  <script>
+    //// Iframe Content and Position Configuration //
+    // FOR FUTURE
+    var conf = [
+      {
+        url: 'http://ilmatieteenlaitos.fi/avaruussaa',
+
+      },
+      {
+        url: 'http://akselipalen.com',
+      },
+    ];
+  </script>
+
+
+
+  <style>
+
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: white;
+    }
+
+    iframe {
+      border: 0;
+      margin: 0;
+      padding: 0;
+    }
+
+    .viewport {
+      width: 840px;
+      height: 525px;
+      overflow: hidden;
+      position: relative;
+      display: inline-block;
+    }
+
+    .content {
+      position: absolute;
+      width: 1280px;
+      height: 2000px;
+    }
+
+    #content00 {
+      top: -210px;
+      left: -350px;
+    }
+
+    #content01 {
+      top: -880px;
+      left: -350px;
+    }
+
+    #content02 {
+      top: -210px;
+      left: -350px;
+    }
+
+    #content03 {
+      top: -95px;
+      left: -220px;
+    }
+
+  </style>
+
+
+
+</head>
+<body>
+
+  <div id="viewport00" class="viewport">
+    <iframe id="content00" name="content00" class="content" src="http://ilmatieteenlaitos.fi/saa/tammela/letku?forecast=short" scrolling="no"></iframe>
+  </div>
+  <div id="viewport01" class="viewport">
+    <iframe id="content01" name="content01" class="content" src="http://ilmatieteenlaitos.fi/avaruussaa" scrolling="no"></iframe>
+  </div>
+  <div id="viewport02" class="viewport">
+    <iframe id="content02" name="content02" class="content" src="http://ilmatieteenlaitos.fi/saa/tammela/letku" scrolling="no"></iframe>
+  </div>
+  <div id="viewport03" class="viewport">
+    <iframe id="content03" name="content03" class="content" src="http://testbed.fmi.fi/history_browser.php?imgtype=radar&t=5&n=15" scrolling="no"></iframe>
+  </div>
+
+  <script>
+    setTimeout(function () {
+      window.location.reload(false);
+    }, 5 * 60000);
+  </script>
+</body>
 </html>
